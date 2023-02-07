@@ -29,7 +29,10 @@ module.exports = ({ env }) => {
       params: {
         Bucket: env('AWS_S3_BUCKET'),
       },
-      cdn: env('AWS_CLOUDFRONT')
+      cdn: env('AWS_CLOUDFRONT'),
+       pathResolver:(cdn,path) => {
+        return `${cdn}${path}`
+      }
     },
   },
   //...
